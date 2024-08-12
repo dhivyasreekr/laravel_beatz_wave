@@ -16,12 +16,17 @@ class GenreSeed extends Seeder
     {
         //
         $genres = [
-            ['name' => 'Classic'],
-            ['name' => 'Western'],
+            ['name' => 'Classical'],
             ['name' => 'Devotional'],
-            ['name' => 'Flok'],
-            ['name' => 'Melody'],
-            ['name' => 'Love'],
+            ['name' => 'Free Style'],
+            ['name' => 'Flok Music'],
+            ['name' => 'Hip Hop'],
+            ['name' => 'Instrumental'],
+            ['name' => 'Motivational'],
+            ['name' => 'Others'],
+            ['name' => 'Pop Music'],
+            ['name' => 'Rock Music'],
+            ['name' => 'Western Music'],
         ];
 
         foreach ($genres as $row) 
