@@ -24,9 +24,9 @@ class GenreSeed extends Seeder
             ['name' => 'Instrumental'],
             ['name' => 'Motivational'],
             ['name' => 'Others'],
-            ['name' => 'Pop Music'],
-            ['name' => 'Rock Music'],
-            ['name' => 'Western Music'],
+            ['name' => 'Pop'],
+            ['name' => 'Rock'],
+            ['name' => 'Western'],
         ];
 
         foreach ($genres as $row) 
