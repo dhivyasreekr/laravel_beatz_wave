@@ -25,7 +25,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             GenreSeed::class,
-            SongSeed::class
+            SongSeed::class,
+            BrandSeeder::class
         ]);
     }
 }
