@@ -133,9 +133,9 @@ class AuthController extends Controller
             "updated_at" => $user->updated_at,
             "photo_path" => $user->photo_path,
             "avatar" => $user->avatar,
-            'isAdmin' => $user->isAdmin(),
-            'isUser' => $user->isUser(),
-            'isCreator' => $user->isCreator()
+            // 'isAdmin' => $user->isAdmin(),
+            // 'isUser' => $user->isUser(),
+            // 'isCreator' => $user->isCreator()
         ];
     }
 
