@@ -27,6 +27,13 @@ class Song extends Model
     {
         return env('DOMAIN_URL') . Storage::url($this->image_path);
     }
+    public function DeleteImagePath()
+    {
+        if (Storage::exists($this->image_path))
+        {
+            Storage::delete($this->image_path);
+        }
+    }
     public function GetSongpath()
     {
         return env('DOMAIN_URL') . Storage::url($this->song_path);
