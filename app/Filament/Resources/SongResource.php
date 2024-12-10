@@ -27,6 +27,11 @@ class SongResource extends Resource
                     ->numeric(),
                 Forms\Components\TextInput::make('name')
                     ->required(),
+                Forms\Components\FileUpload::make('image_path')
+                    ->image()
+                    ->default('no_image_available.jpg'),
+                Forms\Components\FileUpload::make('song_path')
+                    ->default('no_image_available.jpg'),
             ]);
     }
 
@@ -39,6 +44,7 @@ class SongResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
+                Tables\Columns\ImageColumn::make('image_path'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
