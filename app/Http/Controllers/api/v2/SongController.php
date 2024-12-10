@@ -71,13 +71,13 @@ class SongController extends Controller
                     $row->song_path = "";
                 }
 
-                if ($row->poster != null) 
+                if ($row->image_path != null) 
                 {
-                    $row->poster = Song::getFullPath($row->poster);
+                    $row->image_path = Song::getFullPath($row->image_path);
                 }
                 else 
                 {
-                    $row->poster = "";
+                    $row->image_path = "";
                 }
             }    
 
@@ -120,13 +120,13 @@ class SongController extends Controller
                 $row->song_path = "";
             }
 
-            if ($row->poster != null) 
+            if ($row->image_path != null) 
             {
-                $row->poster = Song::getFullPath($row->poster);
+                $row->image_path = Song::getFullPath($row->image_path);
             }
             else 
             {
-                $row->poster = "";
+                $row->image_path = "";
             }
         }
 
@@ -157,7 +157,7 @@ class SongController extends Controller
             'name' => $song->name,
             'genres_id' => $song->genres_id,
             'song_path' => Song::getFullPath($song->song_path),
-            'poster' => Song::getFullPath($song->poster),
+            'image_path' => Song::getFullPath($song->image_path),
 
             // Add more attributes as needed
             'views' => $song->views,
@@ -198,7 +198,7 @@ class SongController extends Controller
                 'name' => 'nullable|string',
                 'genres_id' => 'nullable|exists:genres,id',
                 'song' => 'required|file',
-                'poster' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+                'image_path' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
                 'user_id' => 'nullable|exists:users,id',
             ]);
 
@@ -210,11 +210,11 @@ class SongController extends Controller
             $songPath = Storage::disk('public')->putFile('songs', $request->file('song'));
 
             // Upload poster if provided
-            $posterPath = null;
+            $imagePath = null;
 
-            if ($request->hasFile('poster')) {
+            if ($request->hasFile('image_path')) {
                 // $posterPath = $request->file('poster')->store('poster');
-                $posterPath = Storage::disk('public')->putFile('songs/poster', $request->file('poster'));
+                $imagePath = Storage::disk('public')->putFile('songs/image_path', $request->file('image_path'));
             }
 
             // Create song record
@@ -222,13 +222,13 @@ class SongController extends Controller
             $song->name = $request->name;
             $song->genres_id = $request->genres_id;
             $song->song_path = $songPath;
-            $song->poster = $posterPath;
+            $song->image_path = $imagePath;
             $song->user_id = $user->id;
             $song->save();
 
             // return response()->json(['message' => 'Song uploaded successfully'], 201);
 
-            return response()->json(['message' => 'Song uploaded successfully' . $posterPath], 201);
+            return response()->json(['message' => 'Song uploaded successfully' . $imagePath], 201);
 
         } catch (ValidationException $e) {
             print($e->validator->errors());
