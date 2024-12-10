@@ -21,7 +21,8 @@ class SongSeed extends Seeder
             [
                 'name' => 'Badass',
                 'genre_id' => $genres->where('name', 'Rock')->first()->id,
-                'song_path' => 'Badass-MassTamilan.dev.mp3'
+                'song_path' => 'Badass-MassTamilan.dev.mp3',
+                'image_path' => 'badass.jpg'
             ],
             [
                 'name' => 'Bloody Sweet',
