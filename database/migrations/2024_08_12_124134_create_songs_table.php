@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('name');
 
             $table->string('image_path')->default('no_image_available.jpg');
+
+            $table->string('song_path')->nullable();
             
             $table->timestamps();
         });
